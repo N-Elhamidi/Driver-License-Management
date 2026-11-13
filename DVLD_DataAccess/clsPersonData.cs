@@ -18,7 +18,15 @@ namespace DVLD_DataAccess
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * From People";
+            string query = @"SELECT PersonID,NationalNO,FirstName,SecondName,ThirdName,LastName,
+             CASE 
+             When Gender='m'Or Gender ='M' Then 'Male'
+             ELSE 'Female' 
+             END as Gender,
+             DateOfBirth,Address,Email,Phone, Countries.CountryName as Country,ImagePath
+             From People  
+             Inner Join Countries ON People.NationalityCountryID= Countries.CountryID;
+              ";
 
             SqlCommand Command = new SqlCommand(query,connection);
 
