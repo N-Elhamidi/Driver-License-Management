@@ -59,7 +59,7 @@
             // 
             // msMain
             // 
-            msMain.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            msMain.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             msMain.ImageScalingSize = new Size(32, 32);
             msMain.Items.AddRange(new ToolStripItem[] { tsmiApplications, tsmiPeople, tsmiDrivers, tsmiUsers, tsmiAccountSettings });
             msMain.Location = new Point(0, 0);
@@ -73,7 +73,7 @@
             tsmiApplications.DropDownItems.AddRange(new ToolStripItem[] { tsmiLicenseServices, tsmiManageApplications, tsmiDetainLicenses, tsmiManageApplication, tsmiManageTestTypes });
             tsmiApplications.Image = Properties.Resources.applications;
             tsmiApplications.Name = "tsmiApplications";
-            tsmiApplications.Size = new Size(139, 36);
+            tsmiApplications.Size = new Size(138, 36);
             tsmiApplications.Text = "Applications";
             // 
             // tsmiLicenseServices
@@ -81,7 +81,7 @@
             tsmiLicenseServices.DropDownItems.AddRange(new ToolStripItem[] { tsmiNewDrivingLicense, tsmiRenewDrivingLicense, tsmiReplacementForLostOrDamagedLicense, tsmiReleaseDetainedLicense, tsmiRetakeTest });
             tsmiLicenseServices.Image = Properties.Resources.driving_license_services;
             tsmiLicenseServices.Name = "tsmiLicenseServices";
-            tsmiLicenseServices.Size = new Size(277, 38);
+            tsmiLicenseServices.Size = new Size(275, 38);
             tsmiLicenseServices.Text = "Driving License Services";
             // 
             // tsmiNewDrivingLicense
@@ -89,49 +89,49 @@
             tsmiNewDrivingLicense.DropDownItems.AddRange(new ToolStripItem[] { tsmiLocalLicenseApplication, tsmiInternationalLicenseApplication });
             tsmiNewDrivingLicense.Image = Properties.Resources.new_driving_license;
             tsmiNewDrivingLicense.Name = "tsmiNewDrivingLicense";
-            tsmiNewDrivingLicense.Size = new Size(388, 38);
+            tsmiNewDrivingLicense.Size = new Size(391, 38);
             tsmiNewDrivingLicense.Text = "New Driving License";
             // 
             // tsmiLocalLicenseApplication
             // 
             tsmiLocalLicenseApplication.Image = Properties.Resources.local_license;
             tsmiLocalLicenseApplication.Name = "tsmiLocalLicenseApplication";
-            tsmiLocalLicenseApplication.Size = new Size(239, 38);
+            tsmiLocalLicenseApplication.Size = new Size(234, 38);
             tsmiLocalLicenseApplication.Text = "Local License";
             // 
             // tsmiInternationalLicenseApplication
             // 
             tsmiInternationalLicenseApplication.Image = Properties.Resources.international_license;
             tsmiInternationalLicenseApplication.Name = "tsmiInternationalLicenseApplication";
-            tsmiInternationalLicenseApplication.Size = new Size(239, 38);
+            tsmiInternationalLicenseApplication.Size = new Size(234, 38);
             tsmiInternationalLicenseApplication.Text = "International License";
             // 
             // tsmiRenewDrivingLicense
             // 
             tsmiRenewDrivingLicense.Image = Properties.Resources.renew_driving_license;
             tsmiRenewDrivingLicense.Name = "tsmiRenewDrivingLicense";
-            tsmiRenewDrivingLicense.Size = new Size(388, 38);
+            tsmiRenewDrivingLicense.Size = new Size(391, 38);
             tsmiRenewDrivingLicense.Text = "Renew Driving License";
             // 
             // tsmiReplacementForLostOrDamagedLicense
             // 
             tsmiReplacementForLostOrDamagedLicense.Image = Properties.Resources.replacement_for_lost_or_damaged_license;
             tsmiReplacementForLostOrDamagedLicense.Name = "tsmiReplacementForLostOrDamagedLicense";
-            tsmiReplacementForLostOrDamagedLicense.Size = new Size(388, 38);
+            tsmiReplacementForLostOrDamagedLicense.Size = new Size(391, 38);
             tsmiReplacementForLostOrDamagedLicense.Text = "Replacement for Lost or Damaged License";
             // 
             // tsmiReleaseDetainedLicense
             // 
             tsmiReleaseDetainedLicense.Image = Properties.Resources.release_detained_driving_license;
             tsmiReleaseDetainedLicense.Name = "tsmiReleaseDetainedLicense";
-            tsmiReleaseDetainedLicense.Size = new Size(388, 38);
+            tsmiReleaseDetainedLicense.Size = new Size(391, 38);
             tsmiReleaseDetainedLicense.Text = "Release Detained Driver License";
             // 
             // tsmiRetakeTest
             // 
             tsmiRetakeTest.Image = Properties.Resources.retake_test;
             tsmiRetakeTest.Name = "tsmiRetakeTest";
-            tsmiRetakeTest.Size = new Size(388, 38);
+            tsmiRetakeTest.Size = new Size(391, 38);
             tsmiRetakeTest.Text = "Retake Test";
             // 
             // tsmiManageApplications
@@ -139,21 +139,21 @@
             tsmiManageApplications.DropDownItems.AddRange(new ToolStripItem[] { tsmiLocalDrivingLicenseApplication, tsmiInternationalDrivingLicenseApplication });
             tsmiManageApplications.Image = Properties.Resources.manage_applications;
             tsmiManageApplications.Name = "tsmiManageApplications";
-            tsmiManageApplications.Size = new Size(277, 38);
+            tsmiManageApplications.Size = new Size(275, 38);
             tsmiManageApplications.Text = "Manage Applications";
             // 
             // tsmiLocalDrivingLicenseApplication
             // 
             tsmiLocalDrivingLicenseApplication.Image = Properties.Resources.local_driving_license_application;
             tsmiLocalDrivingLicenseApplication.Name = "tsmiLocalDrivingLicenseApplication";
-            tsmiLocalDrivingLicenseApplication.Size = new Size(376, 38);
+            tsmiLocalDrivingLicenseApplication.Size = new Size(368, 38);
             tsmiLocalDrivingLicenseApplication.Text = "Local Driving License Application";
             // 
             // tsmiInternationalDrivingLicenseApplication
             // 
             tsmiInternationalDrivingLicenseApplication.Image = Properties.Resources.international_driving_license_applications;
             tsmiInternationalDrivingLicenseApplication.Name = "tsmiInternationalDrivingLicenseApplication";
-            tsmiInternationalDrivingLicenseApplication.Size = new Size(376, 38);
+            tsmiInternationalDrivingLicenseApplication.Size = new Size(368, 38);
             tsmiInternationalDrivingLicenseApplication.Text = "International Driving License Application";
             // 
             // tsmiDetainLicenses
@@ -161,56 +161,57 @@
             tsmiDetainLicenses.DropDownItems.AddRange(new ToolStripItem[] { tsmiManageDetainedLicenses, tsmiDetainLicense, tsmi_ReleaseDetainedLicense });
             tsmiDetainLicenses.Image = Properties.Resources.detain_licenses;
             tsmiDetainLicenses.Name = "tsmiDetainLicenses";
-            tsmiDetainLicenses.Size = new Size(277, 38);
+            tsmiDetainLicenses.Size = new Size(275, 38);
             tsmiDetainLicenses.Text = "Detain Licenses";
             // 
             // tsmiManageDetainedLicenses
             // 
             tsmiManageDetainedLicenses.Image = Properties.Resources.manage_detained_licenses;
             tsmiManageDetainedLicenses.Name = "tsmiManageDetainedLicenses";
-            tsmiManageDetainedLicenses.Size = new Size(280, 38);
+            tsmiManageDetainedLicenses.Size = new Size(284, 38);
             tsmiManageDetainedLicenses.Text = "Manage Detained Licenses";
             // 
             // tsmiDetainLicense
             // 
             tsmiDetainLicense.Image = Properties.Resources.detain_license;
             tsmiDetainLicense.Name = "tsmiDetainLicense";
-            tsmiDetainLicense.Size = new Size(280, 38);
+            tsmiDetainLicense.Size = new Size(284, 38);
             tsmiDetainLicense.Text = "Detain License";
             // 
             // tsmi_ReleaseDetainedLicense
             // 
             tsmi_ReleaseDetainedLicense.Image = Properties.Resources.release_detained_driving_license;
             tsmi_ReleaseDetainedLicense.Name = "tsmi_ReleaseDetainedLicense";
-            tsmi_ReleaseDetainedLicense.Size = new Size(280, 38);
+            tsmi_ReleaseDetainedLicense.Size = new Size(284, 38);
             tsmi_ReleaseDetainedLicense.Text = "Release Detained License";
             // 
             // tsmiManageApplication
             // 
             tsmiManageApplication.Image = Properties.Resources.manage_application_types;
             tsmiManageApplication.Name = "tsmiManageApplication";
-            tsmiManageApplication.Size = new Size(277, 38);
+            tsmiManageApplication.Size = new Size(275, 38);
             tsmiManageApplication.Text = "Manage Application Types";
             // 
             // tsmiManageTestTypes
             // 
             tsmiManageTestTypes.Image = Properties.Resources.manage_test_types;
             tsmiManageTestTypes.Name = "tsmiManageTestTypes";
-            tsmiManageTestTypes.Size = new Size(277, 38);
+            tsmiManageTestTypes.Size = new Size(275, 38);
             tsmiManageTestTypes.Text = "Manage Test Types";
             // 
             // tsmiPeople
             // 
             tsmiPeople.Image = Properties.Resources.people;
             tsmiPeople.Name = "tsmiPeople";
-            tsmiPeople.Size = new Size(100, 36);
+            tsmiPeople.Size = new Size(102, 36);
             tsmiPeople.Text = "People";
+            tsmiPeople.Click += tsmiPeople_Click;
             // 
             // tsmiDrivers
             // 
             tsmiDrivers.Image = Properties.Resources.drivers;
             tsmiDrivers.Name = "tsmiDrivers";
-            tsmiDrivers.Size = new Size(104, 36);
+            tsmiDrivers.Size = new Size(102, 36);
             tsmiDrivers.Text = "Drivers";
             // 
             // tsmiUsers
@@ -225,42 +226,42 @@
             tsmiAccountSettings.DropDownItems.AddRange(new ToolStripItem[] { tsmiCurrentUserInfo, tsmiChangePassword, tsmiSignOut });
             tsmiAccountSettings.Image = Properties.Resources.account_settings;
             tsmiAccountSettings.Name = "tsmiAccountSettings";
-            tsmiAccountSettings.Size = new Size(170, 36);
+            tsmiAccountSettings.Size = new Size(169, 36);
             tsmiAccountSettings.Text = "Account Settings";
             // 
             // tsmiCurrentUserInfo
             // 
             tsmiCurrentUserInfo.Image = Properties.Resources.current_user_info;
             tsmiCurrentUserInfo.Name = "tsmiCurrentUserInfo";
-            tsmiCurrentUserInfo.Size = new Size(219, 38);
+            tsmiCurrentUserInfo.Size = new Size(221, 38);
             tsmiCurrentUserInfo.Text = "Current User Info";
             // 
             // tsmiChangePassword
             // 
             tsmiChangePassword.Image = Properties.Resources.change_password;
             tsmiChangePassword.Name = "tsmiChangePassword";
-            tsmiChangePassword.Size = new Size(219, 38);
+            tsmiChangePassword.Size = new Size(221, 38);
             tsmiChangePassword.Text = "Change Password";
             // 
             // tsmiSignOut
             // 
             tsmiSignOut.Image = Properties.Resources.sign_out;
             tsmiSignOut.Name = "tsmiSignOut";
-            tsmiSignOut.Size = new Size(219, 38);
+            tsmiSignOut.Size = new Size(221, 38);
             tsmiSignOut.Text = "Sign Out";
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Driving_Licence_App_Background;
+            BackgroundImage = Properties.Resources.main_form_background;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(984, 561);
+            ClientSize = new Size(984, 528);
             Controls.Add(msMain);
-            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             IsMdiContainer = true;
             MainMenuStrip = msMain;
-            MinimumSize = new Size(1000, 600);
+            MinimumSize = new Size(1000, 567);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Driver License Management";

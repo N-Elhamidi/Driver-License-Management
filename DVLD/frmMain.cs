@@ -7,6 +7,5 @@ namespace DVLD
             InitializeComponent();
         }
 
-       
     }
 }

@@ -133,16 +133,6 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Driving_Licence_App_Background {
-            get {
-                object obj = ResourceManager.GetObject("Driving Licence App Background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap driving_license_services {
             get {
                 object obj = ResourceManager.GetObject("driving_license_services", resourceCulture);
@@ -186,6 +176,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap local_license {
             get {
                 object obj = ResourceManager.GetObject("local_license", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main_form_background {
+            get {
+                object obj = ResourceManager.GetObject("main_form_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
