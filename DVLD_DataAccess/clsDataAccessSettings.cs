@@ -6,6 +6,6 @@ namespace DVLD_DataAccess
 {
     public static class clsDataAccessSettings
     {
-        public static string ConnectionString = "Server = .; Database=DVLD;User id = sa; Password=123456;Trust Server Certificate = true;";
+        public static string ConnectionString { get; } = "Server = .; Database=DVLD;User id = sa; Password=123456;Trust Server Certificate = true;";
     }
 }
