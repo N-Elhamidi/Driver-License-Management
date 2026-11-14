@@ -29,19 +29,21 @@ namespace DVLD.People
             dgvListPeople.Columns["PersonID"].Width = 90;
             dgvListPeople.Columns["PersonID"].HeaderText = "Person ID";
 
+            dgvListPeople.Columns["DateOfBirth"].Width = 130;
+            dgvListPeople.Columns["DateOfBirth"].HeaderText = "Date of Birth";
 
-            dgvListPeople.Columns["NationalNO"].HeaderText = "National No";
-            dgvListPeople.Columns["FirstName"].HeaderText = "First Name";
+
 
             dgvListPeople.Columns["SecondName"].Width = 120;
            dgvListPeople.Columns["SecondName"].HeaderText = "Second Name";
 
 
+            dgvListPeople.Columns["NationalNO"].HeaderText = "National No";
+            dgvListPeople.Columns["FirstName"].HeaderText = "First Name";
             dgvListPeople.Columns["ThirdName"].HeaderText = "Third Name";
             dgvListPeople.Columns["LastName"].HeaderText = "Last Name";
 
-            dgvListPeople.Columns["DateOfBirth"].Width = 130;
-          dgvListPeople.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+           
 
             
             lblTotalRecordsResult.Text = dgvListPeople.RowCount.ToString();

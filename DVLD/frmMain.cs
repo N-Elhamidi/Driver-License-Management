@@ -7,5 +7,13 @@ namespace DVLD
             InitializeComponent();
         }
 
+        private void tsmiPeople_Click(object sender, EventArgs e)
+        {
+            People.frmListPeople frmListPeople= new People.frmListPeople();
+
+            frmListPeople.MdiParent = this;
+
+            frmListPeople.Show();
+        }
     }
 }
