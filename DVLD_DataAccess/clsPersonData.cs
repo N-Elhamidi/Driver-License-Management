@@ -55,10 +55,10 @@ namespace DVLD_DataAccess
             return PeopleList;
         }
 
-        public static bool GetPersonInfoByID( int ID, ref string FirstName, ref string NationalNo,
-            ref string SecondName, ref string ThirdName, ref string LastName, ref byte Gender,
-             ref DateTime DateOfBirth, ref string Address, ref string Phone, ref string Email,
-             ref int CountryID, ref string ImagePath)
+        public static bool GetPersonInfoByID(int ID, ref string FirstName, ref string NationalNo,
+         ref string SecondName, ref string ThirdName, ref string LastName, ref byte Gender,
+         ref DateTime DateOfBirth, ref string Address, ref string Phone, ref string Email,
+         ref int CountryID, ref string ImagePath)
         {
             bool IsFound = false;
 
@@ -78,18 +78,17 @@ namespace DVLD_DataAccess
                 {
                     IsFound = true;
 
-                    NationalNo=(string)reader["NationalNo"];
+                    NationalNo = (string)reader["NationalNo"];
                     FirstName = (string)reader["FirstName"];
                     SecondName = (string)reader["SecondName"];
                     LastName = (string)reader["LastName"];
-                    Gender =(byte)(reader["Gender"]);
+                    Gender = (byte)(reader["Gender"]);
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     CountryID = (int)reader["NationalityCountryID"];
 
-
-                    if (reader["ThirdName"]!=DBNull.Value)
+                    if (reader["ThirdName"] != DBNull.Value)
                     {
                         ThirdName = (string)reader["ThirdName"];
                     }
@@ -97,6 +96,7 @@ namespace DVLD_DataAccess
                     {
                         ThirdName = "";
                     }
+
                     if (reader["Email"] != DBNull.Value)
                     {
                         Email = (string)reader["Email"];
@@ -105,6 +105,7 @@ namespace DVLD_DataAccess
                     {
                         Email = "";
                     }
+
                     if (reader["ImagePath"] != DBNull.Value)
                     {
                         ImagePath = (string)reader["ImagePath"];
@@ -116,11 +117,10 @@ namespace DVLD_DataAccess
 
                     reader.Close();
                 }
-
             }
             catch (Exception ex)
             {
-
+                // Exception handling logic can be added here
             }
             finally
             {
@@ -130,10 +130,10 @@ namespace DVLD_DataAccess
             return IsFound;
         }
 
-        public static bool GetPersonInfoByNationalNO(string NationalNO,ref int ID, ref string FirstName, 
+        public static bool GetPersonInfoByNationalNO(string NationalNO, ref int ID, ref string FirstName,
             ref string SecondName, ref string ThirdName, ref string LastName, ref byte Gender,
-             ref DateTime DateOfBirth, ref string Address, ref string Phone, ref string Email,
-             ref int CountryID, ref string ImagePath)
+            ref DateTime DateOfBirth, ref string Address, ref string Phone, ref string Email,
+            ref int CountryID, ref string ImagePath)
         {
             bool IsFound = false;
 
@@ -163,7 +163,6 @@ namespace DVLD_DataAccess
                     Phone = (string)reader["Phone"];
                     CountryID = (int)reader["NationalityCountryID"];
 
-
                     if (reader["ThirdName"] != DBNull.Value)
                     {
                         ThirdName = (string)reader["ThirdName"];
@@ -172,6 +171,7 @@ namespace DVLD_DataAccess
                     {
                         ThirdName = "";
                     }
+
                     if (reader["Email"] != DBNull.Value)
                     {
                         Email = (string)reader["Email"];
@@ -180,6 +180,7 @@ namespace DVLD_DataAccess
                     {
                         Email = "";
                     }
+
                     if (reader["ImagePath"] != DBNull.Value)
                     {
                         ImagePath = (string)reader["ImagePath"];
@@ -191,11 +192,10 @@ namespace DVLD_DataAccess
 
                     reader.Close();
                 }
-
             }
             catch (Exception ex)
             {
-
+                // Exception handling logic can be added here
             }
             finally
             {
@@ -205,19 +205,18 @@ namespace DVLD_DataAccess
             return IsFound;
         }
 
-
-        public static int AddNewPerson (string NationalNO,string FirstName,
-             string SecondName, string LastName, byte Gender,
-              DateTime DateOfBirth, string Address, string Phone,
-              int CountryID,string ThirdName = "", string Email = "", string ImagePath = "")
+        public static int AddNewPerson(string NationalNO, string FirstName,
+            string SecondName, string LastName, byte Gender,
+            DateTime DateOfBirth, string Address, string Phone,
+            int CountryID, string ThirdName = "", string Email = "", string ImagePath = "")
         {
             int ID = -1;
 
-            string query = @"INSERT INTO People (FirstName, SecondName, ThirdName,LastName,NationalNo,
-                                DateOfBirth,Gender,Address,Phone, Email, NationalityCountryID,ImagePath)
-                             VALUES (@FirstName, @SecondName,@ThirdName, @LastName, @NationalNo,
-                               @DateOfBirth,@Gender,@Address,@Phone, @Email,@NationalityCountryID,@ImagePath);
-                                SElECT SCOPE_IDENTITY();";
+            string query = @"INSERT INTO People (FirstName, SecondName, ThirdName, LastName, NationalNo,
+                                         DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath)
+                     VALUES (@FirstName, @SecondName, @ThirdName, @LastName, @NationalNo,
+                             @DateOfBirth, @Gender, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
+                     SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
@@ -232,22 +231,32 @@ namespace DVLD_DataAccess
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
 
-
             if (ThirdName != "")
-            { command.Parameters.AddWithValue("@ThirdName", ThirdName);}
+            {
+                command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            }
             else
-            { command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value); }
+            {
+                command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
+            }
 
             if (Email != "")
-            { command.Parameters.AddWithValue("@Email", Email); }
+            {
+                command.Parameters.AddWithValue("@Email", Email);
+            }
             else
-            { command.Parameters.AddWithValue("@Email", System.DBNull.Value); }
+            {
+                command.Parameters.AddWithValue("@Email", System.DBNull.Value);
+            }
 
             if (ImagePath != "")
-            { command.Parameters.AddWithValue("@ImagePath", ImagePath); }
+            {
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            }
             else
-            { command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value); }
-
+            {
+                command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+            }
 
             try
             {
@@ -260,17 +269,20 @@ namespace DVLD_DataAccess
                     ID = AutoID;
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                //will be implemented later
+                // will be implemented later
             }
             finally
             {
                 connection.Close();
             }
-           
+
             return ID;
         }
+
+
+
 
     }
 }
