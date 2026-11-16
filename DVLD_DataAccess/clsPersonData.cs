@@ -55,6 +55,34 @@ namespace DVLD_DataAccess
             return PeopleList;
         }
 
+        public static bool DeletePerson (int ID)
+        {
+            int RowsAffected = 0;
+
+            string query = "DELETE People WHERE PersonID =@ID ";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                connection.Open();
+
+                RowsAffected = cmd.ExecuteNonQuery();
+              
+            }catch(Exception ex) 
+            {
+                //
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (RowsAffected > 0);
+        }
+
         public static bool GetPersonInfoByID(int ID, ref string FirstName, ref string NationalNo,
          ref string SecondName, ref string ThirdName, ref string LastName, ref byte Gender,
          ref DateTime DateOfBirth, ref string Address, ref string Phone, ref string Email,
@@ -120,7 +148,7 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling logic can be added here
+                // 
             }
             finally
             {
@@ -195,7 +223,7 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                // Exception handling logic can be added here
+                //
             }
             finally
             {
@@ -280,9 +308,6 @@ namespace DVLD_DataAccess
 
             return ID;
         }
-
-
-
 
     }
 }
