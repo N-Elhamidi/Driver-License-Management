@@ -106,19 +106,19 @@ namespace DVLD_DataAccess
                 {
                     IsFound = true;
 
-                    NationalNo = (string)reader["NationalNo"];
-                    FirstName = (string)reader["FirstName"];
-                    SecondName = (string)reader["SecondName"];
-                    LastName = (string)reader["LastName"];
-                    Gender = (byte)(reader["Gender"]);
-                    DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Address = (string)reader["Address"];
-                    Phone = (string)reader["Phone"];
-                    CountryID = (int)reader["NationalityCountryID"];
+                    NationalNo = Convert.ToString(reader["NationalNo"]);
+                    FirstName = Convert.ToString(reader["FirstName"]);
+                    SecondName = Convert.ToString(reader["SecondName"]);
+                    LastName = Convert.ToString(reader["LastName"]);
+                    Gender = Convert.ToByte(reader["Gender"]);
+                    DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
+                    Address = Convert.ToString(reader["Address"]);
+                    Phone = Convert.ToString(reader["Phone"]);
+                    CountryID = Convert.ToInt32(reader["NationalityCountryID"]);
 
                     if (reader["ThirdName"] != DBNull.Value)
                     {
-                        ThirdName = (string)reader["ThirdName"];
+                        ThirdName = Convert.ToString(reader["ThirdName"]);
                     }
                     else
                     {
@@ -127,7 +127,7 @@ namespace DVLD_DataAccess
 
                     if (reader["Email"] != DBNull.Value)
                     {
-                        Email = (string)reader["Email"];
+                        Email = Convert.ToString(reader["Email"]);
                     }
                     else
                     {
@@ -136,7 +136,7 @@ namespace DVLD_DataAccess
 
                     if (reader["ImagePath"] != DBNull.Value)
                     {
-                        ImagePath = (string)reader["ImagePath"];
+                        ImagePath = Convert.ToString(reader["ImagePath"]);
                     }
                     else
                     {
@@ -148,7 +148,7 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                // 
+               //
             }
             finally
             {
