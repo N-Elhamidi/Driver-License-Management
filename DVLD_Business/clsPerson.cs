@@ -91,6 +91,13 @@ namespace DVLD_Business
             return clsPersonData.DeletePerson(ID);
         }
 
+        private bool _Update ()
+        {
+         return clsPersonData.UpdatePerson(this.PersonID, this.NationalNO, this.FirstName, this.SecondName, this.LastName, this.Gender,
+                this.DateOfBirth, this.Address, this.Phone, this.CountryID, this.ThirdName, this.Email, this.ImagePath);
+        }
+         
+
         public bool Save()
         {
             switch (this.Mode)
@@ -110,7 +117,7 @@ namespace DVLD_Business
 
                 case enMode.Update:
                 {
-                  return false;
+                        return this._Update();
                 }
             }
             return false;
