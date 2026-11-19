@@ -143,6 +143,7 @@
             tsmiDelete.Name = "tsmiDelete";
             tsmiDelete.Size = new Size(194, 36);
             tsmiDelete.Text = "Delete";
+            tsmiDelete.Click += tsmiDelete_Click;
             // 
             // lblTotalRecords
             // 

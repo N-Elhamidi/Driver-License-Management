@@ -42,6 +42,9 @@ namespace DVLD.People
             dgvListPeople.Columns["ThirdName"].HeaderText = "Third Name";
             dgvListPeople.Columns["LastName"].HeaderText = "Last Name";
 
+            dgvListPeople.AllowUserToResizeRows = false;
+            dgvListPeople.AllowUserToResizeColumns = false; 
+
 
             lblTotalRecordsResult.Text = dgvListPeople.RowCount.ToString();
         }
@@ -61,7 +64,7 @@ namespace DVLD.People
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddEditPerson FrmAddEdit = new frmAddEditPerson();
-            FrmAddEdit.Show();
+            FrmAddEdit.ShowDialog();
 
             _RefreshDataView();
 
@@ -93,6 +96,25 @@ namespace DVLD.People
             this.Close();
         }
 
-   
+        private void tsmiDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvListPeople.CurrentRow != null)
+            {
+                int PersonID = Convert.ToInt32(dgvListPeople.CurrentRow.Cells["PersonID"].Value);
+
+               if( MessageBox.Show("Are you sure you want to delete person with ID: " + PersonID, "Confirm Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
+                {
+                    if(clsPerson.DeletePerson(PersonID))
+                    {
+                        MessageBox.Show("Person Deleted Successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _RefreshDataView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
