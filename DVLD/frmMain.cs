@@ -9,11 +9,11 @@ namespace DVLD
 
         private void tsmiPeople_Click(object sender, EventArgs e)
         {
-            People.frmListPeople frmListPeople= new People.frmListPeople();
+            People.frmManagePeople ManagePeople= new People.frmManagePeople();
 
-            frmListPeople.MdiParent = this;
+            ManagePeople.MdiParent = this;
 
-            frmListPeople.Show();
+           ManagePeople.Show();
         }
     }
 }

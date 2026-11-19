@@ -73,6 +73,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_new_person {
+            get {
+                object obj = ResourceManager.GetObject("add_new_person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_person {
             get {
                 object obj = ResourceManager.GetObject("add_person", resourceCulture);
@@ -153,6 +163,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_person {
+            get {
+                object obj = ResourceManager.GetObject("delete_person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap detain_license {
             get {
                 object obj = ResourceManager.GetObject("detain_license", resourceCulture);
@@ -186,6 +206,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap driving_license_services {
             get {
                 object obj = ResourceManager.GetObject("driving_license_services", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_person {
+            get {
+                object obj = ResourceManager.GetObject("edit_person", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -426,6 +456,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap save {
             get {
                 object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show_details {
+            get {
+                object obj = ResourceManager.GetObject("show_details", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
