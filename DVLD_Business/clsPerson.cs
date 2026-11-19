@@ -86,6 +86,15 @@ namespace DVLD_Business
             return (this.PersonID !=-1);
         }
 
+        public static bool IsPersonExist(int PersonID)
+        {
+            return clsPersonData.IsPersonExist(PersonID);
+        }
+        public static bool IsPersonExist(string NationalNO)
+        {
+            return clsPersonData.IsPersonExist(NationalNO);
+        }
+
         public static bool DeletePerson(int ID)
         {
             return clsPersonData.DeletePerson(ID);

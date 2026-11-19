@@ -69,7 +69,7 @@ namespace DVLD_DataAccess
             }
             catch
             {
-
+                
             }
             finally
             {
@@ -98,7 +98,7 @@ namespace DVLD_DataAccess
 
                 if (reader.Read())
                 {
-                    CountryID = (int)reader["CountryID"];
+                    CountryID =  Convert.ToInt32(reader["CountryID"]);
                     IsFound = true;
                 }
 
