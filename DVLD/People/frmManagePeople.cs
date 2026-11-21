@@ -12,13 +12,16 @@ namespace DVLD.People
 {
     public partial class frmManagePeople : Form
     {
+        private DataTable _dtPeople;
+
         public frmManagePeople()
         {
             InitializeComponent();
         }
         private void _SetDataView()
         {
-            dgvListPeople.DataSource = clsPerson.GetAllPeople();
+            _dtPeople = clsPerson.GetAllPeople();
+            dgvListPeople.DataSource = _dtPeople;
 
             dgvListPeople.Columns["Address"].Visible = false;
             dgvListPeople.Columns["ImagePath"].Visible = false;
@@ -43,15 +46,18 @@ namespace DVLD.People
             dgvListPeople.Columns["LastName"].HeaderText = "Last Name";
 
             dgvListPeople.AllowUserToResizeRows = false;
-            dgvListPeople.AllowUserToResizeColumns = false; 
+            dgvListPeople.AllowUserToResizeColumns = false;
 
 
             lblTotalRecordsResult.Text = dgvListPeople.RowCount.ToString();
+
+            cbFilter.SelectedIndex = 0;
         }
 
         private void _RefreshDataView()
         {
-            dgvListPeople.DataSource = clsPerson.GetAllPeople();
+            _dtPeople = clsPerson.GetAllPeople();
+            dgvListPeople.DataSource = _dtPeople;
             lblTotalRecordsResult.Text = dgvListPeople.RowCount.ToString();
         }
 
@@ -102,9 +108,9 @@ namespace DVLD.People
             {
                 int PersonID = Convert.ToInt32(dgvListPeople.CurrentRow.Cells["PersonID"].Value);
 
-               if( MessageBox.Show("Are you sure you want to delete person with ID: " + PersonID, "Confirm Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
+                if (MessageBox.Show("Are you sure you want to delete person with ID: " + PersonID, "Confirm Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    if(clsPerson.DeletePerson(PersonID))
+                    if (clsPerson.DeletePerson(PersonID))
                     {
                         MessageBox.Show("Person Deleted Successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _RefreshDataView();
@@ -114,6 +120,109 @@ namespace DVLD.People
                         MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilterBy.Visible = (cbFilter.SelectedIndex != 0);
+            txtFilterBy.Text = "";
+
+            if (txtFilterBy.Visible)
+            {
+                txtFilterBy.Focus();
+            }
+
+        }
+
+        private void txtFilterBy_TextChanged(object sender, EventArgs e)
+        {
+            string FilterByCondition = "";
+
+            switch (cbFilter.Text)
+            {
+                case "Person ID":
+                    {
+                        FilterByCondition = "PersonID";
+                        break;
+                    }
+                case "National NO.":
+                    {
+                        FilterByCondition = "NationalNO";
+                        break;
+                    }
+                case "First Name":
+                    {
+                        FilterByCondition = "FirstName";
+                        break;
+                    }
+                case "Second Name":
+                    {
+                        FilterByCondition = "SecondName";
+                        break;
+                    }
+                case "Third Name":
+                    {
+                        FilterByCondition = "ThirdName";
+                        break;
+                    }
+                case "Last Name":
+                    {
+                        FilterByCondition = "LastName";
+                        break;
+                    }
+                case "Country":
+                    {
+                        FilterByCondition = "Country";
+                        break;
+                    }
+                case "Gender":
+                    {
+                        FilterByCondition = "Gender";
+                        break;
+                    }
+                case "Email":
+                    {
+                        FilterByCondition = "Email";
+                        break;
+                    }
+                case "Phone":
+                    {
+                        FilterByCondition = "Phone";
+                        break;
+                    }
+                default:
+                    {
+                        FilterByCondition = "None";
+                        break;
+                    }
+
+            }
+
+            if (string.IsNullOrWhiteSpace(txtFilterBy.Text) || FilterByCondition == "None")
+            {
+                _dtPeople.DefaultView.RowFilter = "";
+                lblTotalRecordsResult.Text = dgvListPeople.Rows.Count.ToString();
+                return;
+            }
+
+            if (FilterByCondition == "PersonID")
+            {
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}]={1}", FilterByCondition, txtFilterBy.Text.Trim());
+            }
+            else
+            {
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterByCondition, txtFilterBy.Text.Trim());
+            }
+            lblTotalRecordsResult.Text = (dgvListPeople.RowCount).ToString();
+
+        }
+
+        private void txtFilterBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cbFilter.Text == "Person ID")
+            {
+                e.Handled = !(char.IsDigit(e.KeyChar)) && !(char.IsControl(e.KeyChar));
             }
         }
     }

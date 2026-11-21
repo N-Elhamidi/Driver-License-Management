@@ -41,11 +41,12 @@
             tsmiDelete = new ToolStripMenuItem();
             lblTotalRecords = new Label();
             lblFilterBy = new Label();
-            comboBox1 = new ComboBox();
+            cbFilter = new ComboBox();
             lblTotalRecordsResult = new Label();
             btnAddNewPerson = new Button();
             btnClose = new Button();
             pictureBox2 = new PictureBox();
+            txtFilterBy = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvListPeople).BeginInit();
             cmsPeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -112,20 +113,20 @@
             cmsPeople.ImageScalingSize = new Size(30, 30);
             cmsPeople.Items.AddRange(new ToolStripItem[] { tsmiShowDetails, tsmiAddNewPerson, tsmiEdit, tsmiDelete });
             cmsPeople.Name = "cmsPeople";
-            cmsPeople.Size = new Size(195, 170);
+            cmsPeople.Size = new Size(190, 148);
             // 
             // tsmiShowDetails
             // 
             tsmiShowDetails.Image = Properties.Resources.show_details;
             tsmiShowDetails.Name = "tsmiShowDetails";
-            tsmiShowDetails.Size = new Size(194, 36);
+            tsmiShowDetails.Size = new Size(189, 36);
             tsmiShowDetails.Text = "Show Details";
             // 
             // tsmiAddNewPerson
             // 
             tsmiAddNewPerson.Image = Properties.Resources.add_new_person;
             tsmiAddNewPerson.Name = "tsmiAddNewPerson";
-            tsmiAddNewPerson.Size = new Size(194, 36);
+            tsmiAddNewPerson.Size = new Size(189, 36);
             tsmiAddNewPerson.Text = "Add New Person";
             tsmiAddNewPerson.Click += tsmiAddNewPerson_Click;
             // 
@@ -133,7 +134,7 @@
             // 
             tsmiEdit.Image = Properties.Resources.edit_person;
             tsmiEdit.Name = "tsmiEdit";
-            tsmiEdit.Size = new Size(194, 36);
+            tsmiEdit.Size = new Size(189, 36);
             tsmiEdit.Text = "Edit";
             tsmiEdit.Click += tsmiEdit_Click;
             // 
@@ -141,7 +142,7 @@
             // 
             tsmiDelete.Image = Properties.Resources.delete_person;
             tsmiDelete.Name = "tsmiDelete";
-            tsmiDelete.Size = new Size(194, 36);
+            tsmiDelete.Size = new Size(189, 36);
             tsmiDelete.Text = "Delete";
             tsmiDelete.Click += tsmiDelete_Click;
             // 
@@ -165,13 +166,15 @@
             lblFilterBy.TabIndex = 5;
             lblFilterBy.Text = "Filter By:";
             // 
-            // comboBox1
+            // cbFilter
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(117, 106);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(227, 24);
-            comboBox1.TabIndex = 6;
+            cbFilter.FormattingEnabled = true;
+            cbFilter.Items.AddRange(new object[] { "None", "Person ID", "National NO.", "First Name", "Second Name", "Third Name", "Last Name", "Country", "Gender", "Phone", "Email" });
+            cbFilter.Location = new Point(117, 106);
+            cbFilter.Name = "cbFilter";
+            cbFilter.Size = new Size(161, 24);
+            cbFilter.TabIndex = 6;
+            cbFilter.SelectedIndexChanged += cbFilter_SelectedIndexChanged;
             // 
             // lblTotalRecordsResult
             // 
@@ -219,17 +222,29 @@
             pictureBox2.TabIndex = 38;
             pictureBox2.TabStop = false;
             // 
+            // txtFilterBy
+            // 
+            txtFilterBy.BorderStyle = BorderStyle.FixedSingle;
+            txtFilterBy.Location = new Point(303, 108);
+            txtFilterBy.Name = "txtFilterBy";
+            txtFilterBy.Size = new Size(177, 22);
+            txtFilterBy.TabIndex = 39;
+            txtFilterBy.Visible = false;
+            txtFilterBy.TextChanged += txtFilterBy_TextChanged;
+            txtFilterBy.KeyPress += txtFilterBy_KeyPress;
+            // 
             // frmManagePeople
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1296, 622);
+            Controls.Add(txtFilterBy);
             Controls.Add(pictureBox2);
             Controls.Add(btnClose);
             Controls.Add(btnAddNewPerson);
             Controls.Add(lblTotalRecordsResult);
-            Controls.Add(comboBox1);
+            Controls.Add(cbFilter);
             Controls.Add(lblFilterBy);
             Controls.Add(lblTotalRecords);
             Controls.Add(dgvListPeople);
@@ -254,7 +269,7 @@
         private Label lblTotalRecords;
         private Label lblPeopleList;
         private Label lblFilterBy;
-        private ComboBox comboBox1;
+        private ComboBox cbFilter;
         private Label lblTotalRecordsResult;
         private Button btnAddNewPerson;
         private ContextMenuStrip cmsPeople;
@@ -264,5 +279,6 @@
         private ToolStripMenuItem tsmiDelete;
         private Button btnClose;
         private PictureBox pictureBox2;
+        private TextBox txtFilterBy;
     }
 }
