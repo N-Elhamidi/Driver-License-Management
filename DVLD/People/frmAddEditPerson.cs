@@ -1,4 +1,5 @@
 ﻿
+using DVLD.Global;
 using DVLD.Properties;
 using DVLD_Business;
 using System;
@@ -239,6 +240,28 @@ namespace DVLD.People
             }
         }
 
-        
+        private void ValidateEmail(object sender, CancelEventArgs e)
+        {
+            TextBox txtEmail = (TextBox)sender;
+
+
+            if(!string.IsNullOrWhiteSpace( txtEmail.Text))
+            {
+                if (!clsValidation.ValidateEmail(txtEmail.Text.Trim()))
+                {
+                    e.Cancel = true;
+                    errorProvider1.SetError(txtEmail, "Enter a valid email!");
+                }
+                else
+                {
+                    errorProvider1.SetError(txtEmail, null);
+                }
+
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, null);
+            }
+        }                       
     }
 }

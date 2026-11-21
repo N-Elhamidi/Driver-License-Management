@@ -450,6 +450,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(240, 24);
             txtEmail.TabIndex = 17;
+            txtEmail.Validating += ValidateEmail;
             // 
             // rbFemale
             // 
