@@ -94,7 +94,7 @@ namespace DVLD.People
                 txtEmail.Text = _Person.Email;
                 cbCountry.SelectedIndex = cbCountry.FindString(_Person.CountryInfo.Name);
 
-                
+
                 if (_Person.Gender == 1)
                 {
                     rbMale.Checked = true;
@@ -172,6 +172,11 @@ namespace DVLD.People
                 return;
             }
 
+            if(!_HandleImage())
+            {
+                return;
+            }
+
             _Person.NationalNO = txtNationalNO.Text.Trim();
             _Person.FirstName = txtFirstName.Text.Trim();
             _Person.SecondName = txtSecondName.Text.Trim();
@@ -183,7 +188,15 @@ namespace DVLD.People
             _Person.Address = txtAddress.Text.Trim();
             _Person.CountryID = clsCountry.GetCountryInfo(cbCountry.Text).ID;
             _Person.DateOfBirth = dtDateOfBirth.Value;
-            _Person.ImagePath = "";//implemented later
+
+            if (pbPersonImage.ImageLocation!=null)
+            {
+            _Person.ImagePath = pbPersonImage.ImageLocation;
+            }
+            else
+            {
+                _Person.ImagePath = "";
+            }
 
             if (_Person.Save())
             {
@@ -262,6 +275,73 @@ namespace DVLD.People
             {
                 errorProvider1.SetError(txtEmail, null);
             }
-        }                       
+        }
+
+        private bool _HandleImage()
+        {
+            if (_Person.ImagePath != pbPersonImage.ImageLocation)//Image Changed
+            {
+                if (_Person.ImagePath != "")
+                {
+                    try
+                    {
+                        File.Delete(_Person.ImagePath);
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                if (pbPersonImage.ImageLocation != null)
+                {
+                    string sourceImagePath = pbPersonImage.ImageLocation.ToString();
+
+                    if (clsUtil.CopyImageToImagesFolder(ref sourceImagePath))
+                    {
+                        pbPersonImage.ImageLocation = sourceImagePath;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Copying Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string SelectedFilePath = openFileDialog1.FileName;
+                pbPersonImage.Load(SelectedFilePath);
+
+                llblRemoveImage.Visible = true;
+            }
+        }
+
+        private void llblRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pbPersonImage.ImageLocation = null;
+
+            if (rbFemale.Checked)
+            {
+                pbPersonImage.Image = Resources.female_image;
+            }
+            else
+            {
+                pbPersonImage.Image = Resources.male_image;
+            }
+
+            llblRemoveImage.Visible = false;
+        }
     }
 }

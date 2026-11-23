@@ -75,6 +75,7 @@
             pbPersonID = new PictureBox();
             lblPersonID_result = new Label();
             errorProvider1 = new ErrorProvider(components);
+            openFileDialog1 = new OpenFileDialog();
             gbPersonDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
@@ -220,6 +221,7 @@
             llblRemoveImage.TabIndex = 39;
             llblRemoveImage.TabStop = true;
             llblRemoveImage.Text = "Remove";
+            llblRemoveImage.LinkClicked += llblRemoveImage_LinkClicked;
             // 
             // llblSetImage
             // 
@@ -231,6 +233,7 @@
             llblSetImage.TabIndex = 38;
             llblSetImage.TabStop = true;
             llblSetImage.Text = "Set Imgae";
+            llblSetImage.LinkClicked += llblSetImage_LinkClicked;
             // 
             // pictureBox2
             // 
@@ -601,6 +604,10 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmAddEditPerson
             // 
             AcceptButton = btnSave;
@@ -689,5 +696,6 @@
         private LinkLabel llblSetImage;
         private Label lblPersonID_result;
         private ErrorProvider errorProvider1;
+        private OpenFileDialog openFileDialog1;
     }
 }
