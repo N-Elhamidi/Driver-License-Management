@@ -232,6 +232,8 @@ namespace DVLD.People
             {
                 frmShowPersonInfo frm = new frmShowPersonInfo(Convert.ToInt32(dgvListPeople.CurrentRow.Cells["PersonID"].Value));
                 frm.ShowDialog();
+
+                _RefreshDataView();
             }
         }
     }
