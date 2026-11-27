@@ -225,5 +225,14 @@ namespace DVLD.People
                 e.Handled = !(char.IsDigit(e.KeyChar)) && !(char.IsControl(e.KeyChar));
             }
         }
+
+        private void tsmiShowDetails_Click(object sender, EventArgs e)
+        {
+            if (dgvListPeople.CurrentRow!=null)
+            {
+                frmShowPersonInfo frm = new frmShowPersonInfo(Convert.ToInt32(dgvListPeople.CurrentRow.Cells["PersonID"].Value));
+                frm.ShowDialog();
+            }
+        }
     }
 }

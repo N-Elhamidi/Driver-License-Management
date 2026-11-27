@@ -121,6 +121,7 @@
             tsmiShowDetails.Name = "tsmiShowDetails";
             tsmiShowDetails.Size = new Size(189, 36);
             tsmiShowDetails.Text = "Show Details";
+            tsmiShowDetails.Click += tsmiShowDetails_Click;
             // 
             // tsmiAddNewPerson
             // 
@@ -238,6 +239,7 @@
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
+            CancelButton = btnClose;
             ClientSize = new Size(1296, 622);
             Controls.Add(txtFilterBy);
             Controls.Add(pictureBox2);
